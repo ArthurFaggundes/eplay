@@ -8,11 +8,13 @@ const Banner = () => (
   <Image style={{ backgroundImage: `url(${bannerImg})` }}>
     <div className="container">
       <Tag size="big"> Daily HighLight </Tag>
-      <Title>Marvel&apos;s Spider-Man: Miles Morales - PS4 & PS5</Title>
-      <Prices>
-        For <s>R$ 250,90</s> <br />
-        to only R$ 145,99
-      </Prices>
+      <div>
+        <Title>Marvel&apos;s Spider-Man: Miles Morales - PS4 & PS5</Title>
+        <Prices>
+          For <s>R$ 250,90</s> <br />
+          to only R$ 145,99
+        </Prices>
+      </div>
       <Button
         type="link"
         to="/product"
