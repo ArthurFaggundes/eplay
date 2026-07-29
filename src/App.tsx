@@ -8,11 +8,12 @@ import ProductsList from './components/ProductList'
 
 const routes = createBrowserRouter([
   {
-    path: '/',
+    path: '/', // path na própria root
     element: (
       <>
         <Banner />
         <ProductsList title="Offers" background="grey" />
+        <ProductsList title="Comming soon" background="black" />
       </>
     )
   }
