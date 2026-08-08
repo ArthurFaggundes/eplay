@@ -1,5 +1,8 @@
-import Section from '../Section'
+import { useState } from 'react'
 import { Item, Itens, Action, Modal, ModalContent } from './styles'
+
+import { GalleryItem } from '../../pages/Home'
+import Section from '../Section'
 
 //# games
 import zelda from '../../assets/images/zelda.png'
@@ -10,13 +13,6 @@ import spiderman from '../../assets/images/banner-spiderman.png'
 import play from '../../assets/images/play.png'
 import zoom from '../../assets/images/zoom.png'
 import close from '../../assets/images/fechar.png'
-import { useState } from 'react'
-
-interface GalleryItem {
-  //# interface é como se fosse uma classe
-  type: 'image' | 'video'
-  url: string
-}
 
 interface ModalState extends GalleryItem {
   isVisible: boolean
