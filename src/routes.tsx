@@ -10,7 +10,7 @@ const Routess = () => (
     <Route path="/" element={<Home />} />
     <Route path="/categories" element={<Categories />} />
     {/* query and path parameter */}
-    <Route path="/product/" element={<Product />} />
+    <Route path="/product/:id" element={<Product />} />
   </Routes>
 )
 

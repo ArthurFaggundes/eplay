@@ -1,4 +1,8 @@
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom' // usado para alterar parâmetros na rota
+
+import { Game } from '../Home'
+
 import Hero from '../../components/Hero'
 import Section from '../../components/Section'
 import Gallery from '../../components/Gallery'
@@ -8,27 +12,38 @@ import resident from '../../assets/images/resident.png'
 const Product = () => {
   const { id } = useParams() // ao invéz de por teste.id da para só por {id}
 
+  const [game, setGame] = useState<Game>()
+
+  useEffect(() => {
+    fetch(`https://api-ebac.vercel.app/api/eplay/jogos/${id}`)
+      .then((resp) => resp.json())
+      .then((resp) => setGame(resp))
+  }, [id])
+
+  if (!game) {
+    return <h3>Loading...</h3>
+  }
+
   return (
     <>
-      <Hero />
+      <Hero game={game} />
       <Section title="About the game" background="black">
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo
-          facere asperiores sapiente rerum! Magnam praesentium omnis maiores
-          ducimus illum mollitia, perspiciatis unde doloremque nam maxime, amet
-          laudantium beatae animi? Ab!
-        </p>
+        <p>{game.description}</p>
       </Section>
       <Section title="Read More" background="grey">
         <p>
-          <b>Lorem ipsum dolor sit:</b> Amet consectetur adipisicing. <br />
-          <b>Explicabo facere:</b> Asperiores sapiente rerum. <br />
-          <b>Magnam:</b> Praesentium omnis maiores. <br />
-          <b>Ducimus illum mollitia:</b> perspiciatis unde doloremque nam
-          maxime, amet laudantium beatae animi.
+          <b>Plataform:</b> {game.details.system} <br />
+          <b>Developer:</b> {game.details.developer} <br />
+          <b>Publisher:</b> {game.details.publisher} <br />
+          <b>Languages:</b> The game offers suport to the following languages:{' '}
+          {game.details.languages.join(', ')}
         </p>
       </Section>
-      <Gallery name="Spiderman - Miles Morales" defaultCover={resident} />
+      <Gallery
+        name={game.name}
+        defaultCover={game.media.cover}
+        items={game.media.gallery}
+      />
     </>
   )
 }

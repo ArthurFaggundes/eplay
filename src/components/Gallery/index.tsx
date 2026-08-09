@@ -18,27 +18,28 @@ interface ModalState extends GalleryItem {
   isVisible: boolean
 }
 
-const mock: GalleryItem[] = [
-  {
-    type: 'image',
-    url: zelda
-  },
-  {
-    type: 'image',
-    url: resident
-  },
-  {
-    type: 'video',
-    url: 'https://www.youtube.com/embed/vgWlZ0VG-UM?si=5JzkhVyBO5Osk06j'
-  }
-]
+// const mock: GalleryItem[] = [
+//   {
+//     type: 'image',
+//     url: zelda
+//   },
+//   {
+//     type: 'image',
+//     url: resident
+//   },
+//   {
+//     type: 'video',
+//     url: 'https://www.youtube.com/embed/vgWlZ0VG-UM?si=5JzkhVyBO5Osk06j'
+//   }
+// ]
 
 type Props = {
   defaultCover: string
   name: string
+  items: GalleryItem[]
 }
 
-const Gallery = ({ defaultCover, name }: Props) => {
+const Gallery = ({ defaultCover, name, items }: Props) => {
   const [modal, setModal] = useState<ModalState>({
     isVisible: false,
     type: 'image',
@@ -67,7 +68,7 @@ const Gallery = ({ defaultCover, name }: Props) => {
     <>
       <Section title="Gallery" background="black">
         <Itens>
-          {mock.map((media, index) => (
+          {items.map((media, index) => (
             <Item
               key={media.url}
               onClick={() => {
