@@ -3,10 +3,7 @@ import { useEffect, useState } from 'react'
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductList'
 
-import resident from '../../assets/images/resident.png'
-import diablo from '../../assets/images/diablo.png'
-import starWars from '../../assets/images/star_wars.png'
-import zelda from '../../assets/images/zelda.png'
+import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
 
 export interface GalleryItem {
   //# interface é como se fosse uma classe
@@ -39,30 +36,23 @@ export type Game = {
 }
 
 const Home = () => {
-  const [offers, setOffers] = useState<Game[]>([])
-  const [commingSoon, setCommingSoon] = useState<Game[]>([])
+  const { data: onSaleGames } = useGetOnSaleQuery()
+  const { data: soonGames } = useGetSoonQuery()
 
-  useEffect(() => {
-    fetch('https://api-ebac.vercel.app/api/eplay/promocoes')
-      .then((resp) => resp.json())
-      .then((resp) => setOffers(resp))
-
-    fetch('https://api-ebac.vercel.app/api/eplay/em-breve')
-      .then((resp) => resp.json())
-      .then((resp) => setCommingSoon(resp))
-  }, [])
-
-  return (
-    <>
-      <Banner />
-      <ProductsList games={offers} title="Offers" background="grey" />
-      <ProductsList
-        games={commingSoon}
-        title="Comming soon"
-        background="black"
-      />
-    </>
-  )
+  if (onSaleGames && soonGames) {
+    return (
+      <>
+        <Banner />
+        <ProductsList games={onSaleGames} title="Offers" background="grey" />
+        <ProductsList
+          games={soonGames}
+          title="Comming soon"
+          background="black"
+        />
+      </>
+    )
+  }
+  return <h4>Loading...</h4>
 }
 
 export default Home

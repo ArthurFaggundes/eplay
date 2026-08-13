@@ -6,19 +6,11 @@ import { Game } from '../Home'
 import Hero from '../../components/Hero'
 import Section from '../../components/Section'
 import Gallery from '../../components/Gallery'
-
-import resident from '../../assets/images/resident.png'
+import { useGetGameQuery } from '../../services/api'
 
 const Product = () => {
   const { id } = useParams() // ao invéz de por teste.id da para só por {id}
-
-  const [game, setGame] = useState<Game>()
-
-  useEffect(() => {
-    fetch(`https://api-ebac.vercel.app/api/eplay/jogos/${id}`)
-      .then((resp) => resp.json())
-      .then((resp) => setGame(resp))
-  }, [id])
+  const { data: game } = useGetGameQuery(id!) // id! indica que é obrigatório
 
   if (!game) {
     return <h3>Loading...</h3>
