@@ -21,15 +21,19 @@ export const HeaderBar = styled.header`
     align-items: center;
   }
 `
+
 export const Links = styled.ul`
   display: flex;
   margin-left: 40px;
 `
+
 export const LinkItem = styled.li`
   margin-right: 16px;
 `
-export const LinkCart = styled.a`
+
+export const CartButton = styled.a`
   display: flex;
+  cursor: pointer;
 
   img {
     margin-left: 16px;
