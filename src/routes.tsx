@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Categories from './pages/Categories'
 import Product from './pages/Product'
+import Checkout from './components/Checkout'
 
 const Routess = () => (
   <Routes>
@@ -11,6 +12,7 @@ const Routess = () => (
     <Route path="/categories" element={<Categories />} />
     {/* query and path parameter */}
     <Route path="/product/:id" element={<Product />} />
+    <Route path="/checkout" element={<Checkout />} />
   </Routes>
 )
 

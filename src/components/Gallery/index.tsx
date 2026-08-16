@@ -3,12 +3,6 @@ import { Item, Itens, Action, Modal, ModalContent } from './styles'
 
 import { GalleryItem } from '../../pages/Home'
 import Section from '../Section'
-
-//# games
-import zelda from '../../assets/images/zelda.png'
-import resident from '../../assets/images/resident.png'
-import spiderman from '../../assets/images/banner-spiderman.png'
-
 //# icons
 import play from '../../assets/images/play.png'
 import zoom from '../../assets/images/zoom.png'
@@ -18,20 +12,22 @@ interface ModalState extends GalleryItem {
   isVisible: boolean
 }
 
-// const mock: GalleryItem[] = [
-//   {
-//     type: 'image',
-//     url: zelda
-//   },
-//   {
-//     type: 'image',
-//     url: resident
-//   },
-//   {
-//     type: 'video',
-//     url: 'https://www.youtube.com/embed/vgWlZ0VG-UM?si=5JzkhVyBO5Osk06j'
-//   }
-// ]
+/* exemplo Mock
+const mock: GalleryItem[] = [
+  {
+    type: 'image',
+    url: zelda
+  },
+  {
+    type: 'image',
+    url: resident
+  },
+  {
+    type: 'video',
+    url: 'https://www.youtube.com/embed/vgWlZ0VG-UM?si=5JzkhVyBO5Osk06j'
+  }
+]
+*/
 
 type Props = {
   defaultCover: string
