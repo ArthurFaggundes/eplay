@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Categories from './pages/Categories'
 import Product from './pages/Product'
-import Checkout from './components/Checkout'
+import Checkout from './pages/Checkout'
 
 const Routess = () => (
   <Routes>

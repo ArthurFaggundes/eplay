@@ -1,11 +1,46 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { Game } from '../pages/Home'
 
+type Product = {
+  id: number
+  price: number
+}
+
+type PurchasePayload = {
+  products: Product[]
+  billing: {
+    name: string
+    email: string
+    document: string
+  }
+  delivery: {
+    email: string
+  }
+  payment: {
+    card: {
+      active: boolean
+      name?: string
+      number?: string
+      owner?: {
+        name: string
+        document: string
+      }
+      expires?: {
+        month: number
+        year: number
+      }
+      code?: number
+    }
+    installments: number
+  }
+}
+
 const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://api-ebac.vercel.app/api/eplay'
   }),
   endpoints: (builder) => ({
+    //                              ⇓      ⇓  dados de vinda e dados de saída
     getFeaturedGame: builder.query<Game, void>({
       query: () => 'destaque' // .../eplay/destaque
     }),
@@ -15,6 +50,7 @@ const api = createApi({
     getSoon: builder.query<Game[], void>({
       query: () => 'em-breve'
     }),
+    //|| espaço vazio
     getActionGames: builder.query<Game[], void>({
       query: () => 'acao'
     }),
@@ -32,6 +68,13 @@ const api = createApi({
     }),
     getGame: builder.query<Game, string>({
       query: (id) => `jogos/${id}`
+    }),
+    purchase: builder.mutation<any, PurchasePayload>({
+      query: (body) => ({
+        url: 'checkout',
+        method: 'POST',
+        body //* propriedade tem o mesmo nome do valor
+      })
     })
   })
 })
@@ -41,14 +84,20 @@ export const {
   useGetFeaturedGameQuery,
   useGetOnSaleQuery,
   useGetSoonQuery,
+  //||
   //* categorias >>
   useGetActionGamesQuery,
   useGetSportGamesQuery,
   useGetSimulationGamesQuery,
   useGetFightGamesQuery,
   useGetRpgGamesQuery,
+  //||
   //* pgn do jogo >>
-  useGetGameQuery
+  useGetGameQuery,
+  //||
+  //* checkout >>
+  usePurchaseMutation
+  //||
 } = api
 
 export default api
