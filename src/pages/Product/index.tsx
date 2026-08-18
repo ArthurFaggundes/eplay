@@ -5,13 +5,18 @@ import { useGetGameQuery } from '../../services/api'
 import Hero from '../../components/Hero'
 import Section from '../../components/Section'
 import Gallery from '../../components/Gallery'
+import Loader from '../../components/Loader'
+
+type GameParams = {
+  id: string // Casting para nullable-case (para o React todo ID é string)
+}
 
 const Product = () => {
-  const { id } = useParams() // ao invéz de por teste.id da para só por {id}
-  const { data: game } = useGetGameQuery(id!) // id! indica que é obrigatório
+  const { id } = useParams() as GameParams // ao invéz de por teste.id da para só por {id}
+  const { data: game } = useGetGameQuery(id)
 
   if (!game) {
-    return <h3>Loading...</h3>
+    return <Loader />
   }
 
   return (

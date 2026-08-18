@@ -73,20 +73,25 @@ export const Modal = styled.div`
 `
 
 export const ModalContent = styled.div`
-  max-width: 960px;
+  max-width: 800px;
 
   position: relative;
-  z-index: 2;
+  z-index: 1;
 
   header {
     display: flex;
     margin-bottom: 24px;
     justify-content: space-between;
-    padding: 0 16px;
 
     h4 {
       font-size: 18px;
       font-weight: bold;
+    }
+
+    img {
+      height: 16px;
+      width: 16px;
+      cursor: pointer;
     }
   }
 
