@@ -109,3 +109,10 @@ export const CartItem = styled.li`
     right: 0;
   }
 `
+
+export const NotGameContainer = styled.span`
+  display: block;
+  font-size: 12px;
+  color: ${colors.ligthGrey};
+  margin-bottom: 16px;
+`

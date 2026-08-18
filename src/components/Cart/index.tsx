@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
-import { formatPrice } from '../../utils'
+import { formatPrice, getTotalPrice } from '../../utils'
 
 import Button from '../Button'
 import Tag from '../Tag'
@@ -11,6 +12,7 @@ import * as S from './styles'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
@@ -18,14 +20,13 @@ const Cart = () => {
     dispatch(close())
   }
 
-  const getTotalPrice = () => {
-    return items.reduce((tempTotal, currentValue) => {
-      return (tempTotal += currentValue.prices.current!)
-    }, 0) // inicial = 0
-  }
-
   const removeItem = (id: number) => {
     dispatch(remove(id))
+  }
+
+  const goToCheckout = () => {
+    navigate('/checkout')
+    closeCart()
   }
 
   return (
@@ -46,14 +47,25 @@ const Cart = () => {
             </S.CartItem>
           ))}
         </ul>
-        <S.Quantity>{items.length} jogo(s) no carrinho</S.Quantity>
+        <S.Quantity>{items.length} game(s) in the cart</S.Quantity>
         <S.Prices>
-          Total de R$ {formatPrice(getTotalPrice())}{' '}
-          <span>Em até 6x sem juros</span>
+          Total of {formatPrice(getTotalPrice(items))}
+          <span>Up to 6 interest-free installments</span>
         </S.Prices>
-        <Button title="Click here to continue with the purchase" type="button">
-          Continuar com a compra
-        </Button>
+        {items.length === 0 ? (
+          <S.NotGameContainer>
+            Your cart is current empty. <br />
+            Add games to your cart by clicking in &quot;Add to cart&quot;
+          </S.NotGameContainer>
+        ) : (
+          <Button
+            onClick={() => goToCheckout()}
+            title="Click here to continue with the purchase"
+            type="button"
+          >
+            Complete the purchase
+          </Button>
+        )}
       </S.SideBar>
     </S.CartContainer>
   )

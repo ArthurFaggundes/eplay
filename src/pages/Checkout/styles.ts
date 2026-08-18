@@ -38,6 +38,12 @@ export const InputGroup = styled.div<InputGroupProps>`
     height: 32px;
     padding: 0 8px;
     width: 100%; //* junto do flex: auto
+
+    &.error {
+      border: 2px solid ${colors.green};
+      background-color: ${colors.black};
+      color: ${colors.white};
+    }
   }
 `
 
@@ -45,14 +51,13 @@ export const TabButton = styled.button<TabButtonProps>`
   border-radius: 8px;
   font-size: 14px;
   font-weight: bold;
-  color: background-color: ${(props) =>
-    props.isActive ? colors.black : colors.white};
+  color: ${(props) => (props.isActive ? colors.black : colors.white)};
   background-color: ${(props) =>
     props.isActive ? colors.green : colors.black};
   heigth: 32px;
   border: none;
-  margin-roght: 16px;
-  padding: 0 8px;
+  margin-right: 16px;
+  padding: 8px;
   cursor: pointer;
 
   img {
