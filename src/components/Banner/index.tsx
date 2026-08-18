@@ -1,17 +1,13 @@
-import { useEffect, useState } from 'react'
-
-import { Image, Title, Prices } from './styles'
-import { Game } from '../../pages/Home'
-
-import { formatPrice } from '../ProductList'
-
+import { formatPrice } from '../../utils'
 import { useGetFeaturedGameQuery } from '../../services/api'
 
 import Tag from '../Tag'
 import Button from '../Button'
 
+import { Image, Title, Prices } from './styles'
+
 const Banner = () => {
-  const { data: game, isLoading } = useGetFeaturedGameQuery()
+  const { data: game } = useGetFeaturedGameQuery()
 
   if (!game) {
     return <h3>Loading...</h3>
@@ -24,8 +20,8 @@ const Banner = () => {
         <div>
           <Title>{game.name}</Title>
           <Prices>
-            <s>For {formatPrice(game.prices.old)}</s> <br />
-            to only {formatPrice(game.prices.current)}
+            <s>From {formatPrice(game.prices.old)}</s> <br />
+            to {formatPrice(game.prices.current)}
           </Prices>
         </div>
         <Button

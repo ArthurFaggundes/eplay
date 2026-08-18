@@ -9,19 +9,41 @@ const Footer = () => (
         <SectionTitle>Categories</SectionTitle>
         <Links>
           <li>
-            <Link to="/categories#rpg">RPG</Link>
+            <Link title="Click here to acess RPG games" to="/categories#rpg">
+              RPG
+            </Link>
           </li>
           <li>
-            <Link to="/categories#action">Action</Link>
+            <Link
+              title="Click here to acess Action games"
+              to="/categories#action"
+            >
+              Action
+            </Link>
           </li>
           <li>
-            <Link to="/categories#fight">Fighting</Link>
+            <Link
+              title="Click here to acess Fight games"
+              to="/categories#fight"
+            >
+              Fighting
+            </Link>
           </li>
           <li>
-            <Link to="/categories#sports">Sports</Link>
+            <Link
+              title="Click here to acess Sports games"
+              to="/categories#sports"
+            >
+              Sports
+            </Link>
           </li>
           <li>
-            <Link to="/categories#simulation">Simulation</Link>
+            <Link
+              title="Click here to acess Simulation games"
+              to="/categories#simulation"
+            >
+              Simulation
+            </Link>
           </li>
         </Links>
       </FooterSection>
@@ -29,10 +51,17 @@ const Footer = () => (
         <SectionTitle>Quick Acess</SectionTitle>
         <Links>
           <li>
-            <Link to="#/on-sale">Offers</Link>
+            <Link title="Click here to acess the offers section" to="/#on-sale">
+              Offers
+            </Link>
           </li>
           <li>
-            <Link to="#/comming-soon">Comming Soon</Link>
+            <Link
+              title="Click here to acess the comming soon section"
+              to="/#comming-soon"
+            >
+              Comming Soon
+            </Link>
           </li>
         </Links>
       </FooterSection>

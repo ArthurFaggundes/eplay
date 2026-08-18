@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
 
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductList'
-
-import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
 
 export interface GalleryItem {
   //# interface é como se fosse uma classe

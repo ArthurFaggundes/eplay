@@ -20,15 +20,18 @@ const Product = ({
   image,
   id
 }: Props) => {
-  const getDescription = (description: string) => {
-    if (description.length > 95) {
-      return description.slice(0, 92) + '...'
+  const getDescription = (text: string) => {
+    if (text.length > 95) {
+      return text.slice(0, 92) + '...'
     }
-    return description
+    return text
   }
 
   return (
-    <Card to={`/product/${id}`}>
+    <Card
+      title={`CLick here to read more about ${title}`}
+      to={`/product/${id}`}
+    >
       <img src={image} />
       <Infos>
         {infos.map((info) => (

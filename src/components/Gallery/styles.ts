@@ -26,6 +26,7 @@ export const Action = styled.div`
 
 export const Item = styled.li`
   position: relative;
+  cursor: pointer;
 
   > img {
     //* para ser diretamente no elemento filho
@@ -57,7 +58,7 @@ export const Modal = styled.div`
   align-items: center;
   justify-content: center;
 
-  &.visible {
+  &.is-visible {
     display: flex;
   }
 

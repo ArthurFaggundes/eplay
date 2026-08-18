@@ -53,6 +53,7 @@ export const Prices = styled.p`
     display: block;
     font-size: 12px;
     color: ${colors.ligthGrey};
+    margin-bottom: 16px;
   }
 `
 

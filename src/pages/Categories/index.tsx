@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react'
-import { Game } from '../Home'
-
 import {
   useGetActionGamesQuery,
   useGetSportGamesQuery,

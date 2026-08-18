@@ -7,6 +7,7 @@ import { store } from './store'
 import Header from './components/Header'
 import Routess from './routes'
 import Footer from './components/Footer'
+import Cart from './components/Cart'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Header />
         </div>
         <Routess />
+        <Cart />
         <Footer />
       </BrowserRouter>
     </Provider>

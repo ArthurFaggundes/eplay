@@ -13,6 +13,8 @@ export const Card = styled(Link)`
   color: ${colors.white};
   display: block;
 
+  height: 100%;
+
   img {
     display: block;
     width: 100%;

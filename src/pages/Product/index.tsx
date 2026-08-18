@@ -1,12 +1,10 @@
-import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom' // usado para alterar parâmetros na rota
 
-import { Game } from '../Home'
+import { useGetGameQuery } from '../../services/api'
 
 import Hero from '../../components/Hero'
 import Section from '../../components/Section'
 import Gallery from '../../components/Gallery'
-import { useGetGameQuery } from '../../services/api'
 
 const Product = () => {
   const { id } = useParams() // ao invéz de por teste.id da para só por {id}

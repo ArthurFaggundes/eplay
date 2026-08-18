@@ -1,11 +1,13 @@
 import { useDispatch } from 'react-redux'
-import { Banner, Infos } from './styles'
-import { Game } from '../../pages/Home'
-import { formatPrice } from '../ProductList'
+
+import { formatPrice } from '../../utils'
 import { add, open } from '../../store/reducers/cart'
 
+import { Game } from '../../pages/Home'
 import Button from '../Button'
 import Tag from '../Tag'
+
+import { Banner, Infos } from './styles'
 
 type Props = {
   //* para pegar as informações de cada jogo
