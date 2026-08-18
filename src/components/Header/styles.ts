@@ -22,6 +22,10 @@ export const HeaderBar = styled.header`
     text-decoration: none;
     font-weight: bold;
   }
+
+  h1 {
+    line-height: 0; //* para se alinhar com o restante sem "margem de baixo"
+  }
 `
 
 export const LinkItem = styled.li`

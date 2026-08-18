@@ -30,7 +30,9 @@ const Header = () => {
             <span />
           </S.Hamburguer>
           <Link title="Click here to return to the Home page" to="/">
-            <img src={logo} alt="EPLAY" />
+            <h1>
+              <img src={logo} alt="EPLAY" />
+            </h1>
           </Link>
           <nav>
             <S.Links>

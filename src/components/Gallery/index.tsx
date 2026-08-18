@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { Item, Itens, Action, Modal, ModalContent } from './styles'
 
-import { GalleryItem } from '../../pages/Home'
 import Section from '../Section'
-//# icons
+
 import play from '../../assets/images/play.png'
 import zoom from '../../assets/images/zoom.png'
 import close from '../../assets/images/fechar.png'
